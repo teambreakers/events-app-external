@@ -1,0 +1,21 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: demo-api
+spec: 
+  selector:
+    matchLabels:
+      app: demo-api
+  replicas: 1 # tells deployment to run 1 pod matching the template
+  template:
+    metadata:
+      labels:
+        app: demo-api
+    spec:
+      containers:
+      - name: demo-api
+        image: gcr.io/roidtcdec-101/internal-image@sha256:609623f71cbb8e9ec954db527032ae6d3430b23f6d385234993e9c91bd80456d
+        ports:
+        - containerPort: 8082
+            
+        
